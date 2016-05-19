@@ -12,7 +12,11 @@ module Editorium
     attr_accessor :service_url, :preview_layout
 
     def initialize
-      @service_url = 'http://editorium2.herokuapp.com'
+      @service_url = if ::Rails.env.production?
+                       'http://tc-editorium-prod.s3-website-us-east-1.amazonaws.com/'
+                     else
+                       'http://tc-editorium-stage.s3-website-us-east-1.amazonaws.com/'
+                     end
       @preview_layout = false
     end
   end
