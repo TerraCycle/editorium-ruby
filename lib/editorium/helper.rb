@@ -60,11 +60,11 @@ module Editorium
     private
 
     def template_exists?(card_name)
-      lookup_context.template_exists?("editorium/_#{card_name}")
+      lookup_context.template_exists?("editorium/_#{card_name.tr('-','_')}")
     end
 
     def render_card_to_string(card)
-      render("editorium/#{card.type}", layout: false, data: card.data)
+      render("editorium/#{card.type.tr('-','_')}", layout: false, data: card.data)
     end
   end
 end
