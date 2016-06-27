@@ -46,7 +46,7 @@ module Editorium
             data: payload
           }
 
-          next  unless template_exists?(card_name)
+          next unless template_exists?(card_name.sub('-', '_'))
 
           card = RecursiveOpenStruct.new(card_data, recurse_over_arrays: true)
           buffer << render_card_to_string(card)
