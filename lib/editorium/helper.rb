@@ -19,7 +19,7 @@ module Editorium
           title: options[:title]
         }
       }, {
-        prerender: true
+        prerender: false
       })
     end
 
